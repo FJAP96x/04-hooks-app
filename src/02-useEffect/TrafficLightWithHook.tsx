@@ -1,20 +1,20 @@
-import { UseTrafficLight } from "../hooks/UseTrafficLight";
+import { UseTrafficLight } from '../hooks/UseTrafficLight';
 
 export const TrafficLightWithHook = () => {
   const { countdown, percentage, greenLight, yellowLight, redLight } =
     UseTrafficLight();
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center p-4">
-      <div className="flex flex-col items-center space-y-8">
-        <h1 className="text-white text-3xl font-thin">
+    <div className='min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center p-4'>
+      <div className='flex flex-col items-center space-y-8'>
+        <h1 className='text-white text-3xl font-thin'>
           Semáforo con useEffect
         </h1>
-        <h2 className="text-white text-xl">Countdown: {countdown}</h2>
+        <h2 className='text-white text-xl'>Countdown: {countdown}</h2>
 
-        <div className="w-64 bg-gray-700 rounded-full h-2">
+        <div className='w-64 bg-gray-700 rounded-full h-2'>
           <div
-            className="bg-blue-500 h-2 rounded-full transition-all duration-1000 ease-linear "
+            className='bg-blue-500 h-2 rounded-full transition-all duration-1000 ease-linear '
             style={{ width: `${percentage}%` }} //progress bar width based on countdown
           ></div>
         </div>

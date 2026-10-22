@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const UseCounter = (initialValue: number = 1) => {
   const [counter, setCounter] = useState(initialValue);
@@ -14,7 +14,7 @@ export const UseCounter = (initialValue: number = 1) => {
   return {
     //properties
     counter,
-    
+
     //methods
     increment,
     decrement,

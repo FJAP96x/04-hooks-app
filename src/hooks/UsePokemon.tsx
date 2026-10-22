@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 interface Props {
   id: number;
@@ -35,9 +35,8 @@ export const UsePokemon = ({ id }: Props) => {
     Pokemon,
     isLoading,
 
-
     //method
 
-    FormattedId:id.toString().padStart(3,"0") 
+    FormattedId: id.toString().padStart(3, '0'),
   };
 };

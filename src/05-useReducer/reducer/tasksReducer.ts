@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod';
 
 // const input = {
 //   /* stuff */
@@ -22,9 +22,9 @@ interface TaskState {
 }
 
 export type TaskAction =
-  | { type: "ADD_TODO"; payload: string }
-  | { type: "DELETE_TODO"; payload: number }
-  | { type: "TOGGLE_TODO"; payload: number };
+  | { type: 'ADD_TODO'; payload: string }
+  | { type: 'DELETE_TODO'; payload: number }
+  | { type: 'TOGGLE_TODO'; payload: number };
 
 const TodoSchema = z.object({
   id: z.number(),
@@ -40,7 +40,7 @@ const TaskStateSchema = z.object({
 });
 //se manda como estado reducer
 export const getTasksInitialState = (): TaskState => {
-  const localStorageState = localStorage.getItem("task-state");
+  const localStorageState = localStorage.getItem('task-state');
   if (!localStorageState) {
     return {
       todos: [],
@@ -50,7 +50,7 @@ export const getTasksInitialState = (): TaskState => {
     };
   }
 
-  const result = TaskStateSchema.safeParse( JSON.parse(localStorageState) );
+  const result = TaskStateSchema.safeParse(JSON.parse(localStorageState));
 
   if (result.error) {
     console.error(result.error);
@@ -62,10 +62,8 @@ export const getTasksInitialState = (): TaskState => {
     };
   }
 
-  
   //! Cuidado porque el objeto puedo haber sido manipulado
   return result.data;
-
 
   //return JSON.parse(localStorageState);
 };
@@ -75,7 +73,7 @@ export const tasksReducer = (
   action: TaskAction,
 ): TaskState => {
   switch (action.type) {
-    case "ADD_TODO": {
+    case 'ADD_TODO': {
       const newTodo: Todo = {
         id: Date.now(),
         text: action.payload,
@@ -90,7 +88,7 @@ export const tasksReducer = (
       };
     }
 
-    case "DELETE_TODO": {
+    case 'DELETE_TODO': {
       const currentTodos = state.todos.filter(
         (todo) => todo.id !== action.payload,
       );
@@ -102,7 +100,7 @@ export const tasksReducer = (
         pending: currentTodos.filter((todo) => !todo.completed).length,
       };
     }
-    case "TOGGLE_TODO": {
+    case 'TOGGLE_TODO': {
       const updatedTodos = state.todos.map((todo) => {
         if (todo.id === action.payload) {
           return { ...todo, completed: !todo.completed };

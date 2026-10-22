@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
 export const FocusScreen = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -9,19 +9,19 @@ export const FocusScreen = () => {
   };
 
   return (
-    <div className="bg-gradient flex flex-col gap-4">
-      <h1 className="text-2xl font-thin text-white">FocusScreen</h1>
+    <div className='bg-gradient flex flex-col gap-4'>
+      <h1 className='text-2xl font-thin text-white'>FocusScreen</h1>
 
       <input
         ref={inputRef}
-        type="text"
-        className="bg-white text-black px-4 py-2 rounded-md"
-        placeholder="Type here..."
+        type='text'
+        className='bg-white text-black px-4 py-2 rounded-md'
+        placeholder='Type here...'
         autoFocus
       />
 
       <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        className='bg-blue-500 text-white px-4 py-2 rounded-md'
         onClick={handleClick}
       >
         Set Focus
